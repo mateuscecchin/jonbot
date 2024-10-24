@@ -1,0 +1,12 @@
+appId: com.bot.jonbot
+productName: Jonbot
+copyright: Copyright © 2024 Jonbot
+directories:
+  output: dist
+  buildResources: resources
+files:
+  - from: .
+    filter:
+      - package.json
+      - app
+publish: null
