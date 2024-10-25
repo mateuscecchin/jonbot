@@ -17,9 +17,18 @@ const handler = {
     isMobile: boolean,
     data: { username: string; password: string; cpf: string }[],
     url: string,
-    proxy: string
+    region: string
   ) {
-    ipcRenderer.invoke("create", { isMobile, data, url, proxy });
+    ipcRenderer.invoke("create", { isMobile, data, url, region });
+  },
+  reset() {
+    ipcRenderer.invoke("reset");
+  },
+  f5() {
+    ipcRenderer.invoke("f5");
+  },
+  goTo(url) {
+    ipcRenderer.invoke("goTo", url);
   },
 };
 

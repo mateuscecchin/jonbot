@@ -28,8 +28,6 @@ async function f5() {
   Object.values(browsers).forEach(({ page }) => page.reload());
 }
 
-const HEIGHT = 800;
-const WIDTH = 550;
 const USERNAME_INDEX = 2;
 const PASSWORD_INDEX = 3;
 
@@ -50,7 +48,7 @@ async function createBrowsers(proxys: string[], isMobile: boolean) {
 
       const random = new RandomUtils();
 
-      const args = [`--window-size=${WIDTH},${HEIGHT}`, "--mute-audio"];
+      const args = ["--mute-audio"];
 
       if (ConstantsUtils.isProduction) {
         args.push(`--proxy-server=${proxyConfig.host}:${proxyConfig.port}`);
@@ -71,7 +69,7 @@ async function createBrowsers(proxys: string[], isMobile: boolean) {
       if (isMobile) {
         await page.emulate({
           ...device,
-          viewport: { ...device.viewport, width: WIDTH, height: 0 },
+          viewport: { ...device.viewport, width: 0, height: 0 },
         });
       }
 
